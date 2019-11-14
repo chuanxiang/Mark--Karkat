@@ -250,6 +250,7 @@ endif
 "- commands -------------------------------------------------------------------
 command! -nargs=? Mark call mark#DoMark(<f-args>)
 command! -bar MarkClear call mark#ClearAll()
+command! -bar Marks call mark#Marks()
 
 command! -bar MarkLoad call mark#LoadCommand(1)
 command! -bar MarkSave call mark#SaveCommand()

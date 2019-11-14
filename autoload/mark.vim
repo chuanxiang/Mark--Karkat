@@ -323,6 +323,17 @@ function! mark#Toggle()
 	endif
 endfunction
 
+" List Marks
+function! mark#Marks()
+	let i = 0
+	while i < s:markNum
+		if ! empty(s:pattern[i])
+      echo s:pattern[i]
+		endif
+		let i += 1
+  endwhile
+endfunction
+
 
 " Mark or unmark a regular expression. 
 function! s:SetPattern( index, pattern )
