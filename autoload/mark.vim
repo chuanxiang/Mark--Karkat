@@ -323,7 +323,7 @@ function! mark#Toggle()
 	endif
 endfunction
 
-" List Marks
+" Print all Marks
 function! mark#Marks()
 	let i = 0
 	while i < s:markNum
@@ -332,6 +332,65 @@ function! mark#Marks()
 		endif
 		let i += 1
   endwhile
+endfunction
+
+
+" Print all lines contain Marks
+function! mark#MarkList(...)
+  if ! has('python3')
+    echo "Need python3 support!"
+    return
+  endif
+
+	let option = (a:0 ? a:1 : '')
+
+  py3 << EOF
+import vim
+
+
+class NoMarksError(Exception):
+  pass
+
+
+def getMarkLines(prt):
+  pats = [x for x in vim.eval('s:pattern') if x]
+  # print(pats)
+  if not pats:
+      raise NoMarksError
+  cmd = 'g/\(' + '\)\|\('.join(pats) + '\)'
+  if prt:
+    vim.command(cmd)
+  else:
+    return vim.command_output(cmd)
+
+
+def list_mark_lines(option):
+  try:
+    if not option:
+      getMarkLines(True)
+      return
+
+    if option not in ('b', 'bv'):
+      print("Wrong option. Should be [b] or [bv].")
+      return
+
+    txt = getMarkLines(False)
+    if not txt:
+      print("No lines contain marks")
+      return
+
+    if option == 'b':
+      vim.command("new")
+    elif option == 'bv':
+      vim.command("vnew")
+    vim.current.buffer[:] = txt.split('\n')
+  except NoMarksError:
+    print("No marks set")
+
+
+list_mark_lines(vim.eval('option'))
+EOF
+
 endfunction
 
 

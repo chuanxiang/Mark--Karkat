@@ -52,7 +52,8 @@ HIGHLIGHTING
 :MarkClear		Clear all marks. In contrast to disabling marks, the
 			actual mark information is cleared, the next mark will
 			use the first highlight group. This cannot be undone. 
-:Marks          Print all marks.
+:Marks			Print all marks.
+:MarkList [b|bv]	List all marks
 
 SEARCHING
 [count]*         [count]#

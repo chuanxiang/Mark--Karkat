@@ -251,6 +251,7 @@ endif
 command! -nargs=? Mark call mark#DoMark(<f-args>)
 command! -bar MarkClear call mark#ClearAll()
 command! -bar Marks call mark#Marks()
+command! -nargs=? MarkList call mark#MarkList(<f-args>)
 
 command! -bar MarkLoad call mark#LoadCommand(1)
 command! -bar MarkSave call mark#SaveCommand()
