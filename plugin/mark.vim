@@ -180,6 +180,12 @@ function! s:DefaultHighlightings()
 	highlight def MarkWord4  ctermbg=Red      ctermfg=Black  guibg=#FF7272    guifg=Black
 	highlight def MarkWord5  ctermbg=Magenta  ctermfg=Black  guibg=#FFB3FF    guifg=Black
 	highlight def MarkWord6  ctermbg=Blue     ctermfg=Black  guibg=#9999FF    guifg=Black
+	highlight def MarkWord7  ctermbg=Brown    ctermfg=Black  guibg=#9999FF    guifg=Black
+	highlight def MarkWord8  ctermbg=LightRed ctermfg=Black  guibg=#9999FF    guifg=Black
+	highlight def MarkWord9  ctermbg=LightMagenta ctermfg=Black  guibg=#9999FF    guifg=Black
+	highlight def MarkWord10  ctermbg=DarkGrey    ctermfg=Black  guibg=#9999FF    guifg=Black
+	highlight def MarkWord11  ctermbg=Grey    ctermfg=Black  guibg=#9999FF    guifg=Black
+	highlight def MarkWord12  ctermbg=White   ctermfg=Black  guibg=#9999FF    guifg=Black
 endfunction
 call s:DefaultHighlightings()
 autocmd ColorScheme * call <SID>DefaultHighlightings()
